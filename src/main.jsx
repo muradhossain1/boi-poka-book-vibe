@@ -9,6 +9,7 @@ import Root from './Components/Root/Root';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
 import DeshBoard from './Components/DeshBoard/DeshBoard';
+import BookDetail from './Components/BookDetail/BookDetail';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
         element : <Home></Home>
       },
       {
-        path : '/deshboard',
+        path : '/books/:bookId',
+        element :<BookDetail></BookDetail>,
+        loader : () => fetch('/booksData.json')
+      },
+      {
+        path : 'deshboard',
         element : <DeshBoard></DeshBoard>
       }
     ]
